@@ -49,10 +49,11 @@ async def give_filter(client, message):
                     return
             else:
                 await message.reply(
-                    f"Query: {message.text}"
-                    f"\nTotal Files : `{total_results}`",
+                    f"**Title: {message.text}**"
+                    f"\n**Total Files : {total_results}**"
+                    f"**\n\n© [Movie Junction](https://t.me/MovieJunctionGrp) 📹**",
                     reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Download", url=f'https://t.me/{temp.U_NAME}?start=pquery_{key}')]]
+                        [[InlineKeyboardButton("DOWNLOAD", url=f'https://t.me/{temp.U_NAME}?start=pquery_{key}')]]
                     ))
                 temp.QUERY_HANDLER[key] = {
                     'query':message.text,
@@ -88,7 +89,7 @@ async def next_page(bot, query: CallbackQuery):
     settings = await get_settings(query.message.chat.id)
     pre = 'filep' if settings['file_secure'] else 'file'
 
-    out = f"Hey {query.from_user.mention}\n\nHere are the results that i found for your query **{search}**\n\n"
+    out = f"Hey {query.from_user.mention}\n\n**Here are the results that i found for your query '{search}'** 👇\n\n"
     k = 1
     for file in files:
         out += f"➡️ [<b>{file.caption}</b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}) [{get_size(file.file_size)}]\n\n"
@@ -148,9 +149,10 @@ async def advantage_spoll_choker(bot, query):
             key = f"{query.message.message_id}_{query.message.chat.id}"
             await query.message(
                 f"Query: {movie}"
-                f"\nTotal Files : `{total_results}`",
+                f"\nTotal Files : `{total_results}`"
+                f"**\n\n© [Movie Junction](https://t.me/MovieJunctionGrp) 📹**",
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("Download", url=f'https://t.me/{temp.U_NAME}?start=pquery_{key}')]]
+                    [[InlineKeyboardButton("DOWNLOAD", url=f'https://t.me/{temp.U_NAME}?start=pquery_{key}')]]
                 ))
             temp.QUERY_HANDLER[key] = {
                 'query':movie,
@@ -655,10 +657,10 @@ async def auto_filter(client, msg, q_id: str):
     
     pre = 'filep' if settings['file_secure'] else 'file'
 
-    out = f"Hey {msg.from_user.mention}\n\nHere are the results that i found for your query **{search}**\n\n"
+    out = f"Hey {msg.from_user.mention}\n\n**Here are the results that i found for your query '{search}'** 👇\n\n"
     k = 1
     for file in files:
-        out += f"➡️ [<b>{file.caption}</b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}) [{get_size(file.file_size)}]\n\n"
+        out += f"➡️ [<b><i>{file.caption}</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}) <i><b>[{get_size(file.file_size)}]</i></b>\n\n"
         k += 1
     btn = []
     if offset != "":
