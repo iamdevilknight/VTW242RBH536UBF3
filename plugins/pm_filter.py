@@ -658,7 +658,7 @@ async def auto_filter(client, msg, q_id: str):
     out = f"Hey {msg.from_user.mention}\n\nHere are the results that i found for your query **{search}**\n\n"
     k = 1
     for file in files:
-        out += f"{k}. [{file.file_name} [{get_size(file.file_size)}]](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
+        out += f"{k}. [{file.caption} [{get_size(file.file_size)}]](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
         k += 1
     btn = []
     if offset != "":
