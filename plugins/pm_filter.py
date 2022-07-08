@@ -92,7 +92,7 @@ async def next_page(bot, query: CallbackQuery):
     out = f"Hey {query.from_user.mention}\n\n**Here are the results that i found for your query '{search}'** 👇\n\n"
     k = 1
     for file in files:
-        out += f"➡️ [<b><i>{file.caption} [{get_size(file.file_size)}]</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
+        out += f"➡️ [<b><i>{file.caption}</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}) <b><i>[{get_size(file.file_size)}]</i></b>\n\n"
         k += 1
     btn = []
 
@@ -717,7 +717,7 @@ async def auto_filter(client, msg, q_id: str):
     out = f"Hey {msg.from_user.mention}\n\n**Here are the results that i found for your query '{search}'** 👇\n\n"
     k = 1
     for file in files:
-        out += f"➡️ [<b><i>{file.caption} [{get_size(file.file_size)}]</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
+        out += f"➡️ [<b><i>{file.caption}</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}) <b><i>[{get_size(file.file_size)}]</i></b>\n\n"
         k += 1
     btn = []
     if offset != "":
