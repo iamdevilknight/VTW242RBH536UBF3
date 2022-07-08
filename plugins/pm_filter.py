@@ -401,6 +401,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
             return
         ident, file_id = query.data.split("#")
+        if ident == "checksubkey":
+            await auto_filter(client, query.message, f'pquery_{file_id}')
+            await query.message.delete()
+            return 
         files_ = await get_file_details(file_id)
         if not files_:
             return await query.answer('No such file exist.')
