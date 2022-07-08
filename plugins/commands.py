@@ -79,7 +79,7 @@ async def start(client, message):
         if message.command[1] != "subscribe":
             try:
                 kk, file_id = message.command[1].split("_", 1)
-                pre = 'checksubp' if kk == 'filep' else 'checksub'
+                pre = 'checksubp' if kk == 'filep' else "checksubkey" if kk == "pquery" else 'checksub'
                 btn.append([InlineKeyboardButton(
                     " 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
             except IndexError:
