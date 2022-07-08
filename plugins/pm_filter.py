@@ -402,6 +402,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return
         ident, file_id = query.data.split("#")
         if ident == "checksubkey":
+            query.message.from_user = query.from_user
             await auto_filter(client, query.message, f'pquery_{file_id}')
             await query.message.delete()
             return 
