@@ -96,7 +96,8 @@ async def next_page(bot, query: CallbackQuery):
         k += 1
     btn = []
 
-    if 0 < offset <= 5:
+    ##if 0 < offset <= 5:
+    if 0 < offset < 6:
         off_set = 0
     elif offset == 0:
         off_set = None
@@ -725,7 +726,8 @@ async def auto_filter(client, msg, q_id: str):
         out += f"➡️ [<b><i>{file.caption} [{get_size(file.file_size)}]</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
         k += 1
     btn = []
-    if offset != "":
+    ##if offset != "":
+    if offset > 6 :
         key = f"{msg.chat.id}-{msg.message_id}"
         BUTTONS[key] = search
         req = msg.from_user.id if msg.from_user else 0
