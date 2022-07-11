@@ -1,4 +1,5 @@
 # Kanged From @TroJanZheX
+import math
 import asyncio
 import re
 import ast
