@@ -726,7 +726,7 @@ async def auto_filter(client, msg, q_id: str):
         out += f"➡️ [<b><i>{file.caption} [{get_size(file.file_size)}]</i></b>](https://t.me/{temp.U_NAME}?start={pre}_{file.file_id})\n\n"
         k += 1
     btn = []
-    if offset != "":
+    if offset != "" and total_results > 5:
         key = f"{msg.chat.id}-{msg.message_id}"
         BUTTONS[key] = search
         req = msg.from_user.id if msg.from_user else 0
