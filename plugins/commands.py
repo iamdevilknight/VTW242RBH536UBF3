@@ -82,9 +82,9 @@ async def start(client, message):
                 pre = 'checksubp' if kk == 'filep' else "checksubkey" if kk == "pquery" else 'checksub'
                 btn.append([InlineKeyboardButton(
                     " 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-            except IndexError:
+            except (IndexError, ValueError):
                 btn.append([InlineKeyboardButton(
-                    " 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}/{message.command[1]}")])
+                    " 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text="**➡️ Please Join Our Updates Channel 👉 @Mj_Updates and Click Try Again Button Below to get The Movie You Requested.!\n\n➡️ നമ്മുടെ Update ചാനലിൽ ജോയിൻ ചെയ്താൽ മാത്രമേ ഈ ബോട്ടിൽ നിന്ന് മൂവി കിട്ടു,അത് കൊണ്ട് മൂവി കിട്ടാൻ 👉 @Mj_Updates ചാനലിൽ ജോയിൻ ചെയ്ത ശേഷം താഴെ ഉള്ള Try Again ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക.⬇️**",
