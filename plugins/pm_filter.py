@@ -49,7 +49,7 @@ async def give_filter(client, message):
                 else:
                     return
             else:
-                await message.reply(
+                endi1 = await message.reply(
                     f"**Title: {message.text}**"
                     f"\n**Total Files : {total_results}**"
                     f"**\n\n© [Movie Junction](https://t.me/MovieJunctionGrp) 📹**",
@@ -61,6 +61,9 @@ async def give_filter(client, message):
                     "offset": offset,
                     "files": files,
                     "total_results": total_results}
+            await asyncio.sleep(10)
+            await endi.delete()
+            await message.delete()
         else:
             return 
 
@@ -149,7 +152,7 @@ async def advantage_spoll_choker(bot, query):
         files, offset, total_results = await get_search_results(movie, offset=0, max_results=5, filter=True)
         if files:
             key = f"{query.message.message_id}_{query.message.chat.id}"
-            await query.message(
+            endi2 = await query.message(
                 f"Query: {movie}"
                 f"\nTotal Files : `{total_results}`"
                 f"**\n\n© [Movie Junction](https://t.me/MovieJunctionGrp) 📹**",
@@ -161,6 +164,9 @@ async def advantage_spoll_choker(bot, query):
                 "offset": offset,
                 "files": files,
                 "total_results": total_results}
+            await asyncio.sleep(10)
+            await endi2.delete()
+            await message.delete()
         else:
             k = await query.message.edit('This Movie Not Found In DataBase')
             await asyncio.sleep(10)
@@ -819,31 +825,43 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            endi3 = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            await asyncio.sleep(10)
+                            await endi3.delete()
+                            await message.delete()
                         else:
                             button = eval(btn)
-                            await client.send_message(
+                            endi4 = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(10)
+                            await endi4.delete()
+                            await message.delete()
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        endi5 = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(10)
+                        await endi5.delete()
+                        await message.delete()
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        endi6 = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(10)
+                        await endi6.delete()
+                        await message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
