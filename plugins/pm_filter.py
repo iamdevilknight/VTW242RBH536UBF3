@@ -62,7 +62,7 @@ async def give_filter(client, message):
                     "files": files,
                     "total_results": total_results}
             await asyncio.sleep(10)
-            await endi.delete()
+            await endi1.delete()
             await message.delete()
         else:
             return 
