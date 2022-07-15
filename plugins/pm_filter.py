@@ -61,9 +61,9 @@ async def give_filter(client, message):
                     "offset": offset,
                     "files": files,
                     "total_results": total_results}
-            await asyncio.sleep(10)
-            await endi1.delete()
-            await message.delete()
+                await asyncio.sleep(600)
+                await endi1.delete()
+                await message.delete()
         else:
             return 
 
@@ -164,7 +164,7 @@ async def advantage_spoll_choker(bot, query):
                 "offset": offset,
                 "files": files,
                 "total_results": total_results}
-            await asyncio.sleep(10)
+            await asyncio.sleep(600)
             await endi2.delete()
             await message.delete()
         else:
@@ -826,7 +826,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             endi3 = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(10)
+                            await asyncio.sleep(600)
                             await endi3.delete()
                             await message.delete()
                         else:
@@ -838,7 +838,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(10)
+                            await asyncio.sleep(600)
                             await endi4.delete()
                             await message.delete()
                     elif btn == "[]":
@@ -848,7 +848,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(10)
+                        await asyncio.sleep(600)
                         await endi5.delete()
                         await message.delete()
                     else:
@@ -859,7 +859,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(10)
+                        await asyncio.sleep(600)
                         await endi6.delete()
                         await message.delete()
                 except Exception as e:
