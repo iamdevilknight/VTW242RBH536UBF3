@@ -63,7 +63,6 @@ async def give_filter(client, message):
                     "total_results": total_results}
                 await asyncio.sleep(600)
                 await endi1.delete()
-                ## await message.delete()
         else:
             return 
 
@@ -166,7 +165,6 @@ async def advantage_spoll_choker(bot, query):
                 "total_results": total_results}
             await asyncio.sleep(600)
             await endi2.delete()
-            ## await message.delete()
         else:
             k = await query.message.edit('This Movie Not Found In DataBase')
             await asyncio.sleep(10)
@@ -828,7 +826,6 @@ async def manual_filters(client, message, text=False):
                             endi3 = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                             await asyncio.sleep(600)
                             await endi3.delete()
-                            ## await message.delete()
                         else:
                             button = eval(btn)
                             endi4 = await client.send_message(
@@ -840,7 +837,6 @@ async def manual_filters(client, message, text=False):
                             )
                             await asyncio.sleep(600)
                             await endi4.delete()
-                            ## await message.delete()
                     elif btn == "[]":
                         endi5 = await client.send_cached_media(
                             group_id,
@@ -850,7 +846,6 @@ async def manual_filters(client, message, text=False):
                         )
                         await asyncio.sleep(600)
                         await endi5.delete()
-                        ## await message.delete()
                     else:
                         button = eval(btn)
                         endi6 = await message.reply_cached_media(
@@ -861,7 +856,6 @@ async def manual_filters(client, message, text=False):
                         )
                         await asyncio.sleep(600)
                         await endi6.delete()
-                        ## await message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
